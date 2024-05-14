@@ -1,57 +1,61 @@
 #include <Arduino.h>
 #include <QTRSensors.h>
-#include <SoftwareSerial.h>
 
-// Definición de pines de los sensores de línea
-const int SENSOR_COUNT = 6;
-const uint8_t SENSOR_PINS[SENSOR_COUNT] = {A0, A1, A2, A3, A4, A5};
-const int EMITTER_PIN = 11;
-
-// Definición de pines de los encoders magnéticos
+// Definición de pines
 const int ENCODER_LEFT_CLK = 2;
 const int ENCODER_RIGHT_CLK = 3;
-
-// Definición de pines del motor
+const int ENCODER_LEFT_B = 4;
+const int ENCODER_RIGHT_B = 5;
 const int MOTOR_LEFT_DIR = 7;
 const int MOTOR_RIGHT_DIR = 8;
 const int MOTOR_LEFT_PWM = 9;
 const int MOTOR_RIGHT_PWM = 10;
+const int LED_RIGHT = 6;
+const int LED_LEFT = 11;
+const int EMITTER = 12; // Emisor para los sensores QTR
+const int SENSOR_RIGHT_MARK = A0;
+const int SENSOR_1 = A1;
+const int SENSOR_2 = A2;
+const int SENSOR_3 = A3;
+const int SENSOR_4 = A4;
+const int SENSOR_LEFT_MARK = A5;
+const int FUNCTION_PIN = A6;
+const int BATTERY_VOLTS = A7;
 
-// Constantes de velocidad
-const int MAX_SPEED = 255;
-const int MIN_SPEED = 0;
-const int BASE_SPEED = 100;
+
+// QTR Sensors
+QTRSensors qtr;
+const uint8_t SensorCount = 6;
+uint16_t sensorValues[SensorCount];
 
 // PID constants
-float KP = 4;
-float KI = 0;
-float KD = 0;
+float Kp = 1.8;   // Constante Proporcional
+float Ki = 0.02;   // Constante Integral
+float Kd = 0.2;   // Constante Derivativa
+float Kv = 2.60;   // Constante para las rectas
+int lastError = 0;      // Error anterior
+int integral = 0;       // Acumulación de errores
+int baseSpeed = 185;     // Velocidad base de los motores
+const int MaxSpeed = 255; // Velocidad máxima de los motores
 
-// Variables globales
-QTRSensors qtr;
-uint16_t sensorValues[SENSOR_COUNT];
-volatile long leftEncoderCount = 0;
-volatile long rightEncoderCount = 0;
-unsigned long lastLeftCount = 0;
-unsigned long lastRightCount = 0;
-unsigned long lastTime = 0;
-SoftwareSerial bluetooth(4, 5); // RX, TX
-
-// Funciones
 void motorSetup() {
   pinMode(MOTOR_LEFT_DIR, OUTPUT);
   pinMode(MOTOR_RIGHT_DIR, OUTPUT);
   pinMode(MOTOR_LEFT_PWM, OUTPUT);
   pinMode(MOTOR_RIGHT_PWM, OUTPUT);
+  digitalWrite(MOTOR_LEFT_PWM, 0);
+  digitalWrite(MOTOR_LEFT_DIR, 0);
+  digitalWrite(MOTOR_RIGHT_PWM, 0);
+  digitalWrite(MOTOR_RIGHT_DIR, 0);
 }
 
 void setLeftMotorPWM(int pwm) {
   pwm = constrain(pwm, -255, 255);
   if (pwm < 0) {
-    digitalWrite(MOTOR_LEFT_DIR, HIGH);
+    digitalWrite(MOTOR_LEFT_DIR, 1);
     analogWrite(MOTOR_LEFT_PWM, -pwm);
   } else {
-    digitalWrite(MOTOR_LEFT_DIR, LOW);
+    digitalWrite(MOTOR_LEFT_DIR, 0);
     analogWrite(MOTOR_LEFT_PWM, pwm);
   }
 }
@@ -59,10 +63,10 @@ void setLeftMotorPWM(int pwm) {
 void setRightMotorPWM(int pwm) {
   pwm = constrain(pwm, -255, 255);
   if (pwm < 0) {
-    digitalWrite(MOTOR_RIGHT_DIR, HIGH);
+    digitalWrite(MOTOR_RIGHT_DIR, 0);
     analogWrite(MOTOR_RIGHT_PWM, -pwm);
   } else {
-    digitalWrite(MOTOR_RIGHT_DIR, LOW);
+    digitalWrite(MOTOR_RIGHT_DIR, 1);
     analogWrite(MOTOR_RIGHT_PWM, pwm);
   }
 }
@@ -72,88 +76,110 @@ void setMotorPWM(int left, int right) {
   setRightMotorPWM(right);
 }
 
-void leftEncoderISR() {
-  leftEncoderCount++;
-}
-
-void rightEncoderISR() {
-  rightEncoderCount++;
-}
-
 void setup() {
+  // Configuración de los sensores QTR
   qtr.setTypeAnalog();
-  qtr.setSensorPins(SENSOR_PINS, SENSOR_COUNT);
-  qtr.setEmitterPin(EMITTER_PIN);
+  qtr.setSensorPins((const uint8_t[]){A0, A1, A2, A3, A4, A5}, SensorCount);
+  qtr.setEmitterPin(11);
 
-  // Configurar encoders
-  attachInterrupt(digitalPinToInterrupt(ENCODER_LEFT_CLK), leftEncoderISR, RISING);
-  attachInterrupt(digitalPinToInterrupt(ENCODER_RIGHT_CLK), rightEncoderISR, RISING);
+  digitalWrite(LED_BUILTIN, HIGH); 
+  // Calibración de los sensores
+  for (uint16_t i = 0; i < 400; i++) {
+    qtr.calibrate();
+  }
+  digitalWrite(LED_BUILTIN, LOW); 
 
-  motorSetup();
-
-  // Iniciar comunicación serial con Bluetooth
+  // Inicialización de la comunicación serial
   Serial.begin(9600);
-  bluetooth.begin(9600);
+}
+
+// Función para ajustar los valores del PID a través de Bluetooth
+void controlador() {
+  if (Serial.available() > 0) {
+    char option = Serial.read();
+
+    switch (option) {
+      case 'P':
+        Kp += 0.1;
+        break;
+      case 'p':
+        Kp -= 0.1;
+        break;
+      case 'I':
+        Ki += 0.01;
+        break;
+      case 'i':
+        Ki -= 0.01;
+        break;
+      case 'D':
+        Kd += 0.1;
+        break;
+      case 'd':
+        Kd -= 0.1;
+        break;
+      case 'V':
+        Kv += 0.01;
+        break;
+      case 'v':
+        Kv -= 0.01;
+        break;
+      case 'B':
+        baseSpeed += 1;
+        break;
+      case 'b':
+        baseSpeed -= 1;
+        break;
+      default:
+        break;
+    }
+
+    // Imprime los valores actualizados
+    Serial.print("Kp: ");
+    Serial.print(Kp);
+    Serial.print(" Ki: ");
+    Serial.print(Ki);
+    Serial.print(" Kd: ");
+    Serial.print(Kd);
+    Serial.print(" Kv: ");
+    Serial.print(Kv);
+    Serial.print(" BaseSpeed: ");
+    Serial.println(baseSpeed);
+  }
 }
 
 void loop() {
-  // Leer valores de los sensores de línea
+  // Lectura de la posición de la línea
   int position = qtr.readLineBlack(sensorValues);
+  int error = position - 2500;  // Suponemos que 2500 es el centro
+  error = error / 10;
 
-  // Calcular el error
-  int error = position - 2500; // Suponemos que 2500 es el centro
+  // Calcula la derivativa (diferencia entre el error actual y el error anterior)
+  int derivative = error - lastError;
 
-  // Calcular la derivada (diferencia entre el error actual y el error anterior)
-  unsigned long currentTime = millis();
-  float dt = (currentTime - lastTime) / 1000.0; // Tiempo transcurrido desde la última vez
-  lastTime = currentTime;
-  int derivative = (error - lastError) / dt;
+  // Acumula el error para la integral
+  integral += error;
 
-  // Acumular el error para la integral
-  integral += error * dt;
+  // Calcula el ajuste del PID
+  int motorSpeedAdjustment = Kp * error + Ki * integral + Kd * derivative;
+  int leftSpeed = baseSpeed - motorSpeedAdjustment;
+  int rightSpeed = baseSpeed + motorSpeedAdjustment;
 
-  // Calcular la corrección del PID
-  int motorSpeedAdjustment = KP * error + KI * integral + KD * derivative;
-  int leftSpeed = BASE_SPEED - motorSpeedAdjustment;
-  int rightSpeed = BASE_SPEED + motorSpeedAdjustment;
+  // Comprobación de Velocidades
+  if (rightSpeed > MaxSpeed) rightSpeed = MaxSpeed;
+  if (leftSpeed > MaxSpeed) leftSpeed = MaxSpeed;
+  if (rightSpeed < 0) rightSpeed = 0;
+  if (leftSpeed < 0) leftSpeed = 0;
 
-  // Limitar las velocidades
-  leftSpeed = constrain(leftSpeed, MIN_SPEED, MAX_SPEED);
-  rightSpeed = constrain(rightSpeed, MIN_SPEED, MAX_SPEED);
-
-  // Controlar los motores
+  // Configuración de la velocidad de los motores
   setMotorPWM(leftSpeed, rightSpeed);
 
-  // Actualizar el error anterior
+
+  // Controlador para ajustar los valores del PID
+  controlador();
+
+  // Actualiza el error anterior
   lastError = error;
 
-  // Mostrar información en el puerto serie
-  Serial.print("Position: ");
-  Serial.print(position);
-  Serial.print("  Error: ");
-  Serial.print(error);
-  Serial.print("  Adjustment: ");
-  Serial.print(motorSpeedAdjustment);
-  Serial.print("  Left Speed: ");
-  Serial.print(leftSpeed);
-  Serial.print("  Right Speed: ");
-  Serial.println(rightSpeed);
-
-  // Controlar la comunicación Bluetooth
-  if (bluetooth.available() > 0) {
-    char command = bluetooth.read();
-    if (command == 'K') {
-      KP += 0.1;
-    } else if (command == 'k') {
-      KP -= 0.1;
-    } else if (command == 'I') {
-      KI += 0.001;
-    } else if (command == 'i') {
-      KI -= 0.001;
-    } else if (command == 'D') {
-      KD += 0.1;
-    } else if (command == 'd') {
-      KD -= 0.1;
-    }
-  }
+  // Pequeña pausa para evitar que el bucle se ejecute demasiado rápido
+  delay(10);
 }
