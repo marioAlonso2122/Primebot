@@ -100,7 +100,7 @@ void setMotorPWM(int left, int right) {
 
 void setup() {
   Serial.begin(115200);
-  Serial.println(F("Empieza la Prueba de Motorers\n"));
+  Serial.println(F("Empieza la Prueba de Motores\n"));
   motorSetup();
   updateTime = millis() + updateInterval;
 }
