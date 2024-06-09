@@ -1,0 +1,146 @@
+.tituloPrimebot {
+    font-family: 'Source Code Pro';
+    font-weight: 700;
+}
+
+.header{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.contentPrimeBot{
+    text-align: center;
+}
+
+.techSpecs{
+    background-color:black;
+    color: white;
+    font-family: 'Source Code Pro';
+    color:#33FF33;
+    font-style: oblique;
+    padding: 30px;
+    
+}
+
+.Specs{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+
+.github{
+    max-height:60px;
+}
+
+/* Estilos de la Sección "techSpecs" */
+.techSpecs {
+    background-color: #333; /* Un fondo oscuro para resaltar el contenido, pero menos intenso que el negro */
+    color: #ffffff; /* Texto blanco para alto contraste y mejor visibilidad */
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400; /* Peso de fuente normal para mejor legibilidad */
+    padding: 30px 20px; /* Aumento del padding para más espacio */
+    border-radius: 8px; /* Bordes redondeados para un diseño más suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para profundidad */
+    margin: 20px auto; /* Centrado y espacio alrededor de la sección */
+    max-width: 100%; /* Limitar el ancho máximo para controlar la extensión del texto */
+}
+
+.Specs {
+    display: flex;
+    justify-content: space-evenly; /* Asegura distribución uniforme de espacio */
+    flex-wrap: wrap; /* Permite envolver elementos para responsividad */
+    gap: 20px; /* Espacio entre elementos para no estar demasiado apretados */
+}
+
+.colSpec {
+    width: calc(25% - 20px); /* Ajuste de ancho para incluir el espacio entre columnas */
+    border: 2px solid #22EE22; /* Borde más vivo para resaltar los bloques */
+    padding: 20px; /* Padding interno aumentado para más espacio alrededor del texto */
+    margin: 10px; /* Margen reducido para más elementos en pantallas más pequeñas */
+    border-radius: 5px; /* Bordes redondeados consistentes con el diseño general */
+    background-color: #3a3a3a; /* Fondo ligeramente más claro dentro de los bloques para diferenciación */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra ligera para efecto 3D */
+}
+
+.specLogo {
+    max-height: 100px; /* Ajustar tamaño para mayor uniformidad */
+    margin-bottom: 10px; /* Espacio antes del texto de título */
+}
+
+.spec {
+    font-size: 16px; /* Aumentar tamaño de fuente para mejor legibilidad */
+    color: #ffffff; /* Color de texto blanco para contraste */
+    text-align: center; /* Alineación central para una presentación más clara */
+    margin-top: 0;
+}
+
+.tSpecs {
+    text-align: center;
+    font-size: 24px; /* Tamaño de fuente mayor para el título de la sección */
+    font-weight: 700; /* Peso de fuente más grueso para destacar */
+    color: #22EE22; /* Color brillante para el título, resaltando importancia */
+}
+
+/* Estilos de la Sección "scrum" */
+.scrum {
+    margin: 20px auto;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    background-color: #2a2a2a; /* Color oscuro similar al de .techSpecs para coherencia */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.sprint {
+    margin-bottom: 20px;
+    border: 2px solid #33FF33; /* Color destacado para mantener la coherencia */
+    border-radius: 5px;
+    background-color: #333333; /* Un tono más claro que el fondo de la sección para contraste */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agregamos sombra para profundidad */
+}
+
+.sprintTitle {
+    cursor: pointer;
+    background-color: #424242; /* Color más oscuro para el título del Sprint */
+    color: #33FF33; /* Color de fuente para destacar y mantener coherencia */
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    user-select: none;
+    transition: background-color 0.3s; /* Transición suave al cambiar de estado */
+}
+
+.sprintTitle:hover {
+    background-color: #535353; /* Cambio de color al pasar el mouse para interactividad */
+}
+
+.task {
+    display: none; /* Inicialmente oculto, se muestra al clickear el título del Sprint */
+    border-top: 1px solid #4f4f4f; /* Color de borde suave para separar tareas */
+    padding: 5px 10px;
+}
+
+.taskTitle {
+    background-color: #393939; /* Color de fondo para título de tareas */
+    color: #fff; /* Texto blanco para mejor legibilidad */
+    padding: 10px;
+    margin: 0;
+    font-size: 16px; /* Tamaño de fuente adecuado para títulos de tareas */
+    cursor: pointer;
+}
+
+.taskDesc {
+    display: none; /* Inicialmente oculto, se muestra al clickear el título de la tarea */
+    padding: 10px;
+    font-size: 14px;
+    color: #ccc; /* Color de fuente más claro para la descripción */
+    background-color: #2f2f2f; /* Fondo ligeramente más oscuro para la descripción */
+}
+
+.taskTitle:hover {
+    background-color: #4a4a4a; /* Efecto al pasar el ratón para mejorar interactividad */
+}
