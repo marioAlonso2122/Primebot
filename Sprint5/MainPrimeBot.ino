@@ -141,8 +141,8 @@ void seguirLinea() {
   integral += error;
 
   int motorSpeedAdjustment = Kp * error + Ki * integral + Kd * derivative;
-  int leftSpeed = baseSpeed - motorSpeedAdjustment;
-  int rightSpeed = baseSpeed + motorSpeedAdjustment;
+  int leftSpeed = baseSpeed - motorSpeedAdjustment - Kv * baseSpeed;
+  int rightSpeed = baseSpeed + motorSpeedAdjustment + Kv * baseSpeed;
 
   leftSpeed = constrain(leftSpeed, 0, MaxSpeed);
   rightSpeed = constrain(rightSpeed, 0, MaxSpeed);
