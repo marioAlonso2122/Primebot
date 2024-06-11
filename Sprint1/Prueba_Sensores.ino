@@ -1,32 +1,32 @@
 #include <QTRSensors.h>
 
-//Prueba básica de los Sensores Siguelíneas de Pololu QTR-8A
+// Prueba básica de los Sensores Siguelíneas de Pololu QTR-8A
 
-QTRSensors qtr;
+QTRSensors qtr; // Crea una instancia de la clase QTRSensors para interactuar con los sensores
 
-const uint8_t SensorCount = 6;
-uint16_t sensorValues[SensorCount];
+const uint8_t SensorCount = 6; // Número de sensores que se están utilizando
+uint16_t sensorValues[SensorCount]; // Arreglo para almacenar los valores de los sensores
 
 void setup()
 {
-  // configure the sensors
-  qtr.setTypeAnalog();
-  qtr.setSensorPins((const uint8_t[]){A0, A1, A2, A3, A4, A5}, SensorCount);
-  qtr.setEmitterPin(11);
+  qtr.setTypeAnalog(); // Configura los sensores como analógicos
+  qtr.setSensorPins((const uint8_t[]){A0, A1, A2, A3, A4, A5}, SensorCount); // Establece los pines que se utilizan para los sensores
+  qtr.setEmitterPin(11); // Establece el pin del emisor IR
 
-  delay(500);
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH); // Encendemos el LED de Arduino para marcar que está en modo calibración
+  delay(500); // Espera para que los sensores se estabilicen
+  pinMode(LED_BUILTIN, OUTPUT); // Configura el LED incorporado como salida
+  digitalWrite(LED_BUILTIN, HIGH); // Enciende el LED para indicar el inicio de la calibración
 
-  // Llamamos a la función 'calibrate' para realizar la calibración
+  // Calibración de los sensores
   for (uint16_t i = 0; i < 400; i++)
   {
-    qtr.calibrate();
+    qtr.calibrate(); // Ejecuta la calibración
   }
-  digitalWrite(LED_BUILTIN, LOW); // Apagamos el LED de Arduino para indicar que ya ha terminado la calibración
+  digitalWrite(LED_BUILTIN, LOW); // Apaga el LED para señalar el fin de la calibración
 
-  // Iniciamos la comunicación Serial e imprimimos los valores mínimos de la caslibración
+  // Inicia la comunicación Serial
   Serial.begin(9600);
+  // Imprime los valores mínimos obtenidos durante la calibración
   for (uint8_t i = 0; i < SensorCount; i++)
   {
     Serial.print(qtr.calibrationOn.minimum[i]);
@@ -34,7 +34,7 @@ void setup()
   }
   Serial.println();
 
-  // Imprimimos los valores máximos que han leído el modo calibración
+  // Imprime los valores máximos obtenidos durante la calibración
   for (uint8_t i = 0; i < SensorCount; i++)
   {
     Serial.print(qtr.calibrationOn.maximum[i]);
@@ -42,23 +42,21 @@ void setup()
   }
   Serial.println();
   Serial.println();
-  delay(1000);
+  delay(1000); // Espera antes de iniciar el bucle principal
 }
 
 void loop()
 {
-  // Leemos el valor de la línea a través de los sensores ya calibrados
+  // Lee la posición de la línea respecto a los sensores
   uint16_t position = qtr.readLineBlack(sensorValues);
 
-  // Imprimimos los valores de cada sensor en tiempo real
-  // 0 indica máxima reflectancia
-  // 1000 indica mínima reflectancia
+  // Imprime los valores de reflectancia de cada sensor en tiempo real
   for (uint8_t i = 0; i < SensorCount; i++)
   {
     Serial.print(sensorValues[i]);
     Serial.print('\t');
   }
-  Serial.println(position);
+  Serial.println(position); // Imprime la posición calculada de la línea
 
-  delay(250);
+  delay(250); // Pequeña pausa para hacer las lecturas menos frecuentes
 }
