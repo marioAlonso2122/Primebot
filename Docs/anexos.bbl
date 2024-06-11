@@ -1,0 +1,38 @@
+\begin{thebibliography}{1}
+
+\bibitem{arduinoNanoEvery}
+Arduino.
+\newblock Arduino nano every.
+\newblock \url{https://store.arduino.cc/products/arduino-nano-every}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{youtrack}
+JetBrains.
+\newblock Youtrack.
+\newblock \url{https://www.jetbrains.com/youtrack/}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{ogata2010}
+Katsuhiko Ogata.
+\newblock {\em Modern Control Engineering}.
+\newblock Prentice Hall, 2010.
+
+\bibitem{pololuOPT3101}
+Pololu.
+\newblock Opt3101 distance sensor.
+\newblock \url{https://www.pololu.com/product/3101}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{pololuQTR8A}
+Pololu.
+\newblock Qtr-8a reflectance sensor array.
+\newblock \url{https://www.pololu.com/product/960}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{scrumGuide}
+Ken Schwaber and Jeff Sutherland.
+\newblock The scrum guide.
+\newblock \url{https://www.scrumguides.org/scrum-guide.html}, 2020.
+\newblock [Internet; descargado 10-junio-2024].
+
+\end{thebibliography}

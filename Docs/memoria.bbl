@@ -1,0 +1,39 @@
+\begin{thebibliography}{1}
+
+\bibitem{arduinoNanoEvery}
+Arduino.
+\newblock Arduino nano every.
+\newblock \url{https://store.arduino.cc/products/arduino-nano-every}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{koza92}
+John~R. Koza.
+\newblock {\em Genetic Programming: On the Programming of Computers by Means of
+  Natural Selection}.
+\newblock MIT Press, 1992.
+
+\bibitem{ogata2010}
+Katsuhiko Ogata.
+\newblock {\em Modern Control Engineering}.
+\newblock Prentice Hall, 2010.
+
+\bibitem{pololuOPT3101}
+Pololu.
+\newblock Opt3101 distance sensor.
+\newblock \url{https://www.pololu.com/product/3101}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{pololuQTR8A}
+Pololu.
+\newblock Qtr-8a reflectance sensor array.
+\newblock \url{https://www.pololu.com/product/960}, 2023.
+\newblock [Internet; descargado 10-junio-2024].
+
+\bibitem{wiki:latex}
+Wikipedia.
+\newblock Latex --- wikipedia{,} la enciclopedia libre.
+\newblock
+  \url{https://es.wikipedia.org/w/index.php?title=LaTeX&oldid=84209252}, 2015.
+\newblock [Internet; descargado 30-septiembre-2015].
+
+\end{thebibliography}

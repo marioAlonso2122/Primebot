@@ -1,0 +1,85 @@
+\babel@toc {spanish}{}\relax 
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iii}}{section*.2}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {iv}}{section*.3}%
+\contentsline {appendix}{\chapternumberline {A}Plan de Proyecto Software}{1}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Introducción}{1}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Planificación temporal}{2}{section.Alph1.2}%
+\contentsline {subsection}{Sprint 0 (08/01/2024 - 14/01/2024)}{2}{section*.4}%
+\contentsline {subsection}{Sprint 1 (16/01/2024 - 16/02/2024)}{2}{section*.5}%
+\contentsline {subsection}{Sprint 2 (17/02/2024 - 17/03/2024)}{3}{section*.6}%
+\contentsline {subsection}{Sprint 3 (18/03/2024 - 08/04/2024)}{3}{section*.7}%
+\contentsline {subsection}{Sprint 4 (09/04/2024 - 02/05/2024)}{3}{section*.8}%
+\contentsline {subsection}{Sprint 5 (03/05/2024 - 03/06/2024)}{4}{section*.9}%
+\contentsline {subsection}{Sprint 6 (16/01/2024 - 03/06/2024)}{4}{section*.10}%
+\contentsline {subsection}{Sprint 7 (03/06/2024 - 09/06/2024)}{5}{section*.11}%
+\contentsline {subsection}{Resumen}{5}{section*.12}%
+\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{6}{section.Alph1.3}%
+\contentsline {subsection}{Viabilidad económica}{6}{section*.13}%
+\contentsline {subsubsection}{Costes}{6}{section*.14}%
+\contentsline {subsection}{Viabilidad legal}{8}{section*.15}%
+\contentsline {subsubsection}{Software}{8}{section*.16}%
+\contentsline {subsubsection}{Documentacion}{8}{section*.17}%
+\contentsline {subsubsection}{Imágenes y vídeos}{9}{section*.18}%
+\contentsline {appendix}{\chapternumberline {B}Especificación de Requisitos}{11}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}Introducción}{11}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}Objetivos generales}{12}{section.Alph2.2}%
+\contentsline {section}{\numberline {B.3}Catálogo de requisitos}{12}{section.Alph2.3}%
+\contentsline {subsection}{Requisitos funcionales}{12}{section*.19}%
+\contentsline {subsection}{Requisitos no funcionales}{13}{section*.20}%
+\contentsline {section}{\numberline {B.4}Diagramas UML}{14}{section.Alph2.4}%
+\contentsline {subsection}{Diagrama de flujo}{14}{section*.21}%
+\contentsline {subsection}{Diagramas de secuencias}{15}{section*.22}%
+\contentsline {subsubsection}{Prueba de siguelineas}{15}{section*.23}%
+\contentsline {subsubsection}{Prueba de cuadrícula}{15}{section*.24}%
+\contentsline {subsubsection}{Prueba de laberinto}{16}{section*.25}%
+\contentsline {section}{\numberline {B.5}Especificación de requisitos}{17}{section.Alph2.5}%
+\contentsline {appendix}{\chapternumberline {C}Especificación de diseño}{23}{appendix.Alph3}%
+\contentsline {section}{\numberline {C.1}Introducción}{23}{section.Alph3.1}%
+\contentsline {section}{\numberline {C.2}Diseño de datos}{23}{section.Alph3.2}%
+\contentsline {subsection}{Variables de Sensores:}{23}{section*.26}%
+\contentsline {subsection}{Constantes de Control PID:}{24}{section*.27}%
+\contentsline {subsection}{Estado del Robot:}{24}{section*.28}%
+\contentsline {subsection}{Configuraciones de Hardware:}{24}{section*.29}%
+\contentsline {subsection}{Datos de Navegación:}{24}{section*.30}%
+\contentsline {section}{\numberline {C.3}Diseño procedimental}{24}{section.Alph3.3}%
+\contentsline {subsection}{Configuración y Control de Motores:}{25}{section*.31}%
+\contentsline {subsection}{Calibración y Lectura de Sensores:}{25}{section*.32}%
+\contentsline {subsection}{Navegación y Planificación de Rutas:}{25}{section*.33}%
+\contentsline {subsection}{Interacción con el Usuario:}{25}{section*.34}%
+\contentsline {subsection}{Control Principal y Ajustes:}{26}{section*.35}%
+\contentsline {section}{\numberline {C.4}Diseño arquitectónico}{26}{section.Alph3.4}%
+\contentsline {subsection}{Capa de Hardware:}{26}{section*.36}%
+\contentsline {subsection}{Capa de Control:}{27}{section*.37}%
+\contentsline {subsection}{Capa de Comunicación:}{27}{section*.38}%
+\contentsline {subsection}{Capa de Aplicación:}{27}{section*.39}%
+\contentsline {appendix}{\chapternumberline {D}Documentación técnica de programación}{29}{appendix.Alph4}%
+\contentsline {section}{\numberline {D.1}Introducción}{29}{section.Alph4.1}%
+\contentsline {section}{\numberline {D.2}Estructura de directorios}{29}{section.Alph4.2}%
+\contentsline {section}{\numberline {D.3}Manual del programador}{30}{section.Alph4.3}%
+\contentsline {subsection}{Entorno de desarrollo}{30}{section*.40}%
+\contentsline {subsubsection}{Arduino IDE}{30}{section*.41}%
+\contentsline {subsubsection}{Visual Studio Code}{31}{section*.42}%
+\contentsline {subsubsection}{git}{31}{section*.43}%
+\contentsline {subsection}{Obtención del código fuente}{31}{section*.44}%
+\contentsline {subsubsection}{Añadir nuevas funcionalidades}{32}{section*.45}%
+\contentsline {subsubsection}{Ejecutar código}{34}{section*.46}%
+\contentsline {appendix}{\chapternumberline {E}Documentación de usuario}{37}{appendix.Alph5}%
+\contentsline {section}{\numberline {E.1}Introducción}{37}{section.Alph5.1}%
+\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{37}{section.Alph5.2}%
+\contentsline {section}{\numberline {E.3}Instalación}{37}{section.Alph5.3}%
+\contentsline {section}{\numberline {E.4}Manual del usuario}{37}{section.Alph5.4}%
+\contentsline {subsection}{Conexión Bluetooth}{38}{section*.47}%
+\contentsline {subsection}{Modo Calibración}{38}{section*.48}%
+\contentsline {subsection}{Modo Siguelíneas}{39}{section*.49}%
+\contentsline {subsection}{Modo Cuadrícula}{40}{section*.50}%
+\contentsline {subsection}{Modo Laberinto}{41}{section*.51}%
+\contentsline {appendix}{\chapternumberline {F}Anexo de sostenibilización curricular}{43}{appendix.Alph6}%
+\contentsline {section}{\numberline {F.1}Introducción}{43}{section.Alph6.1}%
+\contentsline {section}{\numberline {F.2}Eleccion de materiales}{43}{section.Alph6.2}%
+\contentsline {section}{\numberline {F.3}Optimización energética}{44}{section.Alph6.3}%
+\contentsline {section}{\numberline {F.4}Reciclaje y Reutilización}{44}{section.Alph6.4}%
+\contentsline {section}{\numberline {F.5}Gestión de Residuos}{44}{section.Alph6.5}%
+\contentsline {section}{\numberline {F.6}Conclusión}{44}{section.Alph6.6}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{45}{appendix*.52}%

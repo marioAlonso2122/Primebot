@@ -1,0 +1,391 @@
+\apendice{Plan de Proyecto Software}
+
+\section{Introducción}
+La planificación de un proyecto es un punto básico para estudiar su viabilidad. En esta fase se estima el trabajo, tiempo y dinero que supondrá llevar a cabo el proyecto.
+Hay que definir minuciosamente las fases y las partes del proyecto para obtener unos datos precisos.
+
+La fase de planificación se puede dividir en:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Planificación temporal} 
+\item
+  \textbf{Estudio de viabilidad} 
+
+\end{itemize}
+
+En la planificación temporal se elabora un calendario donde se estima el tiempo para la realización de cada una de las partes del proyecto.
+Se establecerá una fecha de comienzo y una de finalización estimada.
+
+La segunda parte se centra en la viabilidad del proyecto teniendo en cuenta dos aspectos:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Viabilidad económica:} se estiman los costes y beneficios que puede suponer la realización del proyecto.
+\item
+  \textbf{Viabilidad legal:} Se analizan las leyes y licencias que pueden afectar al desarrollo del proyecto.
+
+\end{itemize}
+
+\section{Planificación temporal}
+
+Al comenzar la planificación del proyecto se decidió utilizar la metodología ágil SCRUM para la gestión del proyecto.~\cite{scrumGuide}
+No se ha seguido esta metodología al completo ya que el equipo estaba formado solo por mí y no por un grupo de personas, aunque en líneas generales sí que se ha seguido la filosofía.
+
+\begin{itemize}
+\tightlist
+\item
+  Estrategia de desarrollo incremental a través de sprints y revisiones.
+\item
+  Duración media de los sprints de 2 semanas.
+\item
+  Al final de cada sprint se hacía la subida de la parte de código correspondiente.
+  \item
+  Para cada sprint había una lista de tareas a realizar.
+  \item
+  Se realizaba una estimación del tiempo que iba a llevar a cabo cada tarea.
+\end{itemize}
+
+Para realizar el seguimiento de los sprints y las tareas del proyecto se ha utilizado la plataforma online YouTrack ~\cite{youtrack}, que permite en un panel canvas organizar las tareas, los sprints, la duración de cada sprint e incluso realizar un Diagrama de Gantt con todas las tareas a realizar en el proyecto.
+
+\subsection {Sprint 0 (08/01/2024 - 14/01/2024)}
+
+Para llevar a cabo este sprint se realizó una reunión inicial con el tutor Jesús Enrique Sierra García para comenzar con el proyecto.
+
+En esta reunión se trataron los diferentes objetivos para el proyecto.
+Se trataron temas como planificación que se iba a llevar a cabo, metodología ágil a utilizar, características del proyecto y establecer las diferentes herramientas que se iban a utilizar.
+
+Se estimaron 10 horas de trabajo y se invirtieron finalmente 7,5 horas completando todas las tareas.
+
+ \subsection {Sprint 1 (16/01/2024 - 16/02/2024)}
+Los objetivos de este sprint eran: configurar y encargar la fabricación de la PCB, seleccionar los componentes que iba a utilizar PrimeBot y seleccionar las pruebas que se van a realizar con esta versión de PrimeBot.
+
+Se estimaron 100 horas de trabajo y se invirtieron finalmente 90 horas completando todas las tareas.
+ 
+ \subsection {Sprint 2 (17/02/2024 - 17/03/2024)}
+ 
+El principal objetivo de este sprint era realizar todo el montaje y todas las pruebas necesarias para asegurar que el funcionamiento de las conexiones y componentes de PrimeBot era el correcto.
+
+Las tareas en las que se dividió este sprint fueron:
+ \begin{itemize}
+\tightlist
+\item
+  Montar los componentes de PrimeBot.
+\item
+  Realizar el Script de Prueba de motores.
+\item
+  Realizar el Script de Prueba de encoders magnéticos.
+  \item
+  Realizar el Script de Prueba del selector de posición.
+  \item
+  Realizar el Script de Prueba de conectividad bluetooth.
+    \item
+  Realizar el Script de Prueba de los sensores de Distancia.
+    \item
+  Realizar el Script de Prueba de los sensores de línea.
+\end{itemize}
+
+Se estimaron 100 horas de trabajo y se invirtieron finalmente 80 horas completando todas las tareas
+ 
+ \subsection {Sprint 3 (18/03/2024 - 08/04/2024)}
+ 
+ El objetivo de este sprint era realizar el desarrollo del programa que iba a llevar PrimeBot para la prueba de siguelíneas.
+ 
+ Las tareas en las que se dividió este sprint fueron:
+ \begin{itemize}
+\tightlist
+\item
+  Implementación de un algoritmo PID ~\cite{ogata2010}sencillo.
+\item
+  Implementar la conectividad Bluetooth y los parámetros configurables dentro del PID.
+\item
+  Implementar un algoritmo PID con más parámetros que el inicial.
+  \item
+  Realizar la optimización del algoritmo PID para obtener el máximo rendimiento posible.
+\end{itemize}
+
+Se estimaron 80 horas de trabajo y se invirtieron 90 completando todas las tareas
+ 
+ \subsection {Sprint 4 (09/04/2024 - 02/05/2024)}
+  El objetivo de este sprint era realizar el desarrollo del programa que iba a llevar PrimeBot para la prueba de la resolución de cuadrícula.
+  
+   Las tareas en las que se dividió este sprint fueron:
+ \begin{itemize}
+\tightlist
+\item
+  Conectividad Bluetooth para definir estación de salida y de llegada.
+\item
+  Implementar la representación gráfica de la cuadrícula.
+\item
+  Implementar el algoritmo que calcula los movimientos desde el origen al destino.
+  \item
+  Implementar la detección de cruces.
+    \item
+  Implementar los giros que se realizan en la cuadrícula.
+      \item
+  Implementar la gestión de puntos bloqueados y caminos alternativos.
+\end{itemize}
+
+Este sprint fue el más problemático y el que más tiempo extra que no estaba planeado obligó a invertir. Se estimaron 100 horas de trabajo y se invirtieron 120 horas quedando por cumplir la gestión de puntos bloqueados y caminos alternativos para completar en el siguiente sprint.
+ 
+ \subsection {Sprint 5 (03/05/2024 - 03/06/2024)}
+  El objetivo de este sprint era realizar el desarrollo del programa que iba a llevar PrimeBot para la prueba del laberinto.
+  
+   \begin{itemize}
+\tightlist
+\item
+  Conectividad Bluetooth para iniciar y parar el robot.
+\item
+  Implementar la detección de paredes con los sensores de distancia.
+\item
+  Implementar la detección de huecos con los sensores de distancia.
+  \item
+  Implementar los giros que se realizan dentro del recorrido.
+    \item
+  Implementar la detección del final del laberinto
+      \item
+  Implementar la impresión del recorrido por serial vía Bluetooth.
+\end{itemize}
+
+Se estimaron 100 horas de trabajo y se invirtieron 70 horas terminando todas las tareas, pero fue necesario invertir otras 50 horas para completar la tarea faltante del sprint anterior.  
+  
+   \subsection {Sprint 6 (16/01/2024 - 03/06/2024)}
+  El objetivo de este sprint era realizar el desarrollo del la página web que iba a acompañar al proyecto.
+  
+     \begin{itemize}
+\tightlist
+\item
+  Compra del dominio.
+\item
+  Creación de HomePage.
+\item
+  Diseño de Landing Page PrimeBot.
+  \item
+  Implementar Landing Page PrimeBot.
+        \item
+  Incluir contenido relacionado con PrimeBot.
+    \item
+  Incluir vídeos multimedia de PrimeBot funcionando.
+\end{itemize}
+  Se estimaron 90 horas de trabajo y se invirtieron 70 horas completando todas las tareas.  
+  
+   \subsection {Sprint 7 (03/06/2024 - 09/06/2024)}
+  El objetivo de este sprint era terminar la memoria, los anexos y todo el material relativo a la entrega del proyecto.
+\begin{itemize}
+\tightlist
+\item
+  Terminar la memoria en LaTex.
+\item
+  Terminar los anexos en LaTex.
+\item
+  Realizar los dos vídeos necesarios para la entrega.
+  \item
+  Preparar material para el día de la defensa.
+\end{itemize}
+
+Se estimaron 40 horas de trabajo y se invirtieron 40 horas completando todas las tareas.
+
+\subsection {Resumen}
+Finalmente en el proyecto de PrimeBot se han invertido aproximadamente las mismas horas de trabajo que se había estimado en un inicio pero no con la misma distribución en los sprints, siendo necesarias utiliizar horas de un sprint en el sprint posterior.
+
+En la siguiente tabla se pueden ver las horas que se han invertido en cada parte del desarrollo de PrimeBot:
+
+ \begin{table}[h]
+   \rowcolors {2}{gray!35}{}
+\begin{tabular}{| r | l |}
+\hline
+Planificación del proyecto & 27,5 horas \\
+\hline
+Documentación & 70 horas \\
+\hline
+Características & 400 horas \\
+\hline
+Desarrollo web & 70 horas\\
+\hline
+Diseño de piezas & 50 horas\\
+\hline
+Optimización de programas & 100 horas \\
+\hline
+Total & 717,5 horas \\
+\hline
+\end{tabular}
+   \caption{Resumen horas dedicadas a cada apartado de PrimeBot}
+   \label{A.1}
+ \end{table}
+
+\section{Estudio de viabilidad}
+
+\subsection{Viabilidad económica}
+En este apartado se analizarán los costes y los posibles beneficios que se pueden obtener con este proyecto realizándolo en un entorno empresarial real.
+
+\subsubsection{Costes}
+
+Los costes del proyecto se pueden desglosar en varias categorías, vamos a detallar cada una de ellas:
+\\
+\textbf{Costes de Personal}
+
+El proyecto ha sido llevado a cabo por un equipo de desarrollo web y por un desarrollador empleado a tiempo completo durante cinco meses.
+
+Del desarrollador se considera el siguiente salario:
+
+ \begin{table}[h]
+   \rowcolors {2}{gray!35}{}
+\begin{tabular}{| r | l |}
+\hline
+Concepto & Coste \\
+\hline
+Salario Neto & 1281€ \\
+\hline
+IRPF & 1507,15€ \\
+\hline
+Seguridad Social & 642,85€ \\
+\hline
+Salario Bruto & 2150€ \\
+\hline
+\end{tabular}
+   \caption{Tabla de los costes de personal }
+   \label{A.2}
+ \end{table}
+El total por tanto durante 5 meses en salario bruto será de 10.750€
+El coste del desarrollo web se define como un presupuesto cerrado que tiene un coste total de 500€ IVA Incluido y se divide en diseño y desarrollo:
+
+ \begin{table}[h]
+   \rowcolors {2}{gray!35}{}
+\begin{tabular}{| r | l |}
+\hline
+Concepto & Coste \\
+\hline
+Diseño Web & 200€ \\
+\hline
+Desarrollo & 300€ \\
+\hline
+\end{tabular}
+   \caption{Tabla de los costes desarrollo web}
+   \label{A.3}
+ \end{table}
+ 
+\textbf{Costes de Hardware}
+
+En este apartado se revisan todos los costes en dispositivos y componentes de Primebot que han sido necesarios para el desarrollo del proyecto.
+ \begin{table}[h]
+\begin{tabular}{| r | l |}
+\hline
+Concepto & Coste \\
+\hline
+Fabricación PCB & 29 € \\
+\hline
+Arduino Nano ~\cite{arduinoNanoEvery} & 19 € \\
+\hline
+QTR8A ~\cite{pololuQTR8A} & 12.04 € \\
+\hline
+OPT3101 ~\cite{pololuOPT3101} & 45.38 € \\
+\hline
+Bluetooth & 4.54 € \\
+\hline
+Driver de Motores & 5.99€ \\
+\hline
+Batería & 4.50 € \\
+\hline
+Motores N20 & 10.90 € \\
+\hline
+Encoders Magnéticos & 10.29 € \\
+\hline
+\end{tabular}
+   \caption{Tabla de los costes de hardware}
+   \label{A.4}
+ \end{table}
+ 
+Por tanto el total de la construcción de PrimeBot a nivel de hardware sería de 141,64 €
+
+\textbf{Costes Varios}
+
+En este apartado se revisan el resto de costes del proyecto.
+
+ \begin{table}[h]
+\begin{tabular}{| r | l |}
+\hline
+Concepto & Coste \\
+\hline
+Hosting & 6€ / mes \\
+\hline
+Dominio & 14,90€ / año \\
+\hline
+\end{tabular}
+   \caption{Tabla de costes varios}
+   \label{A.5}
+ \end{table}
+ 
+En el total de los costes hay que incluir que el hosting de momento se ha mantenido durante 5 meses, además del dominio haría un total de 44,90€.
+
+\textbf{Costes Totales}
+
+A continuación se adjunta una tabla con los costes totales de cada sección de PrimeBot en caso de llevarse a cabo en un entorno industrial.
+ \begin{table}[h]
+\begin{tabular}{| r | l |}
+\hline
+Concepto & Coste \\
+\hline
+Costes de Personal & 10.750€ \\
+\hline
+Costes desarrollo web & 500€ \\
+\hline
+Costes mantenimiento web & 44,90€ \\
+\hline
+Costes hardware & 141,64€ \\
+\hline
+Total & 11.436,64€ \\
+\hline
+\end{tabular}
+   \caption{Tabla de costes totales}
+   \label{A.6}
+ \end{table}
+
+\textbf{Ingresos}
+
+PrimeBot es un proyecto sólido y con un gran rendimiento que se podría emplear en numerosas ediciones del ASTI Robotics Challenge para pelear por los primeros premios, además también se podría comercializar en kit para que los equipos que quieran participar adquieran el kit a nivel de hardware y desarrollen sus propios programas.
+
+Se considerará que en 5 años, al menos en uno se consiga el primer premio del ASTI Robotics Challenge y que un kit de Hardware se venderá al doble del precio de coste de los materiales. 
+ \begin{table}[h]
+\begin{tabular}{| r | l |}
+\hline
+Concepto & Cantidad \\
+\hline
+Ganador ASTI Robotics Challenge & 3.000€ \\
+\hline
+Venta kit educativo & 299€ \\
+\hline
+\end{tabular}
+   \caption{Tabla de ingresos potenciales}
+   \label{A.7}
+ \end{table}
+ 
+\subsection{Viabilidad legal}
+
+En esta sección se discutirán los temas relacionados con las licencias que puedan estar relacionadas con cualquiera de los ámbitos de este proyecto.
+
+\subsubsection{Software}
+
+Primero hay que elegir cuál sería la licencia más conveniente para el proyecto de PrimeBot.
+Hay que elegir que derechos queremos proporcionar a los usuarios y cuáles no.
+
+En mi caso quiero que PrimeBot sea un proyecto de software libre y código abierto por lo que seleccionaré la licencia más permisible posible con los usuarios.
+
+Dentro de las licencias, la más permisible es la licencia MIT.
+
+MIT Permite a los usuarios realizar uso, copia, modificación, fusión, publicación, sublicencia y venta de copias del software.
+
+MIT Es compatible con muchas otras licencias de software libre y de código abierto.
+
+\subsubsection{Documentacion}
+
+Para la documentación he seleccionado utilizar una licencia Creative Commons ya que están enfocadas a licenciar este tipo de contenidos, en concreto he seleccionado Creative Commons Attribution 4.0 International (CC-BY-4.0) que establece lo siguiente:
+
+\subsubsection{Imágenes y vídeos}
+
+En la documentación del proyecto no se han utilizado imágenes de terceros por lo que tanto las imágenes como los vídeos son propias del proyecto y cuentan con la misma licencia que la documentación (CC-BY-4.0)
+
+
+
+

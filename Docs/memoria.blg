@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: memoria.aux
+A level-1 auxiliary file: ./tex/1_Introduccion.aux
+A level-1 auxiliary file: ./tex/2_Objetivos_del_proyecto.aux
+A level-1 auxiliary file: ./tex/3_Conceptos_teoricos.aux
+A level-1 auxiliary file: ./tex/4_Tecnicas_y_herramientas.aux
+A level-1 auxiliary file: ./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux
+A level-1 auxiliary file: ./tex/6_Trabajos_relacionados.aux
+A level-1 auxiliary file: ./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux
+The style file: plain.bst
+Database file #1: bibliografia.bib
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            536 strings with 4967 characters,
+and the built_in function-call counts, 1318 in all, are:
+= -- 126
+> -- 42
+< -- 0
++ -- 18
+- -- 12
+* -- 42
+:= -- 233
+add.period$ -- 22
+call.type$ -- 6
+change.case$ -- 22
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 52
+empty$ -- 133
+format.name$ -- 12
+if$ -- 285
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 4
+newline$ -- 37
+num.names$ -- 12
+pop$ -- 48
+preamble$ -- 1
+purify$ -- 18
+quote$ -- 0
+skip$ -- 36
+stack$ -- 0
+substring$ -- 30
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 20
+warning$ -- 0
+while$ -- 12
+width$ -- 7
+write$ -- 70
