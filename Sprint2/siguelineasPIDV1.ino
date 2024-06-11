@@ -52,6 +52,9 @@ int lastError = 0;      // Error anterior
 int integral = 0;       // Acumulación de errores
 int baseSpeed = 100;  // Velocidad base de los motores
 
+/**
+ * Configuración inicial de los pines de motores.
+ */
 void motorSetup() {
   pinMode(MOTOR_LEFT_DIR, OUTPUT);
   pinMode(MOTOR_RIGHT_DIR, OUTPUT);
@@ -62,6 +65,10 @@ void motorSetup() {
   digitalWrite(MOTOR_RIGHT_PWM, 0);
   digitalWrite(MOTOR_RIGHT_DIR, 0);
 }
+
+/**
+ * Funciones para establecer el PWM de los motores.
+ */
 
 void setLeftMotorPWM(int pwm) {
   pwm = constrain(pwm, -255, 255);
@@ -140,11 +147,11 @@ void loop() {
   int rightSpeed = baseSpeed + motorSpeedAdjustment;
 
   //Comprobacion de Velocidades
-  if (rightSpeed > MaxSpeed ) rightSpeed = MaxSpeed; // 
-  if (leftSpeed > MaxSpeed ) leftSpeed = MaxSpeed; // 
+  if (rightSpeed > MaxSpeed ) rightSpeed = MaxSpeed;
+  if (leftSpeed > MaxSpeed ) leftSpeed = MaxSpeed; 
   if (rightSpeed < 0) rightSpeed = 0;    
   if (leftSpeed < 0)leftSpeed = 0;
 
-  setMotorPWM(leftSpeed, rightSpeed);
+  setMotorPWM(leftSpeed, rightSpeed); // Aplicación de las velocidades calculadas a los motores
 
 }
