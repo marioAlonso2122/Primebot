@@ -2,6 +2,9 @@
 #define MaxSpeed 255 //Velocidad Maxima Motores
 #define MinSpeed 0 //Velocidad minima Motores
 
+//Programa de las primeras pruebas de PID siguelíneas para PrimeBot antes de montarlo en el PCB.
+// La definición de pines es diferente ya que no se ejecutó en la PCB si no en protoboard.
+
 // Motor driver
 const int AIN1 = 9; 
 const int AIN2 = 10;
